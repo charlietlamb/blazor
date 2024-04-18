@@ -1,0 +1,22 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status" class="text-red-500">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private double currentCount = 0;
+
+    private void IncrementCount()
+    {
+        Random random = new Random();
+        double randomNumber = random.NextDouble() * 2 - 1;
+        double incremenet = randomNumber > 0 ? 1 : -1;
+        currentCount += incremenet;
+    }
+}
